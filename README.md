@@ -1,4 +1,4 @@
-# MDR
+# Research Log
 
 ## Outline
 1. Models 
@@ -104,3 +104,37 @@ Here is the data distribution after spliting:
 | Training Samples(lt)          | 354566        |272616     |98983             |
 | Testing Samples(lt)           | 4529          |19223      |6919              |
 | Negative Samples(lt)          | 4529          |19223      |6919              |
+
+---
+### Results and experiment log
+---
+### Benchmarks
+#### Benchmark I
+Benchmark I is produced by training and testing on the original datasets.
+|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
+| :---:   |    :----:     |  :----:   |     :---:        |
+| HR      |0.6816         |0.7506     |            |
+| NDCG    |0.4053         |0.4666     |              |
+
+#### Benchmark II
+Benchmark II is produced by training on original datasets and testing on the splited datasets.
+|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
+| :---:   |    :----:     |  :----:   |     :---:        |
+| HR      |         |     |            |
+| NDCG    |         |     |              |
+
+---
+### Hot-longtail data structure performance
+#### Hot part performances
+Hot part performances are produced by training and testing on the hot part datasets.
+|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
+| :---:   |    :----:     |  :----:   |     :---:        |
+| HR      |0.4990         |0.7099     |            |
+| NDCG    |0.2647         |0.4124     |              |
+
+#### Longtail part performances
+Longtail part performances are produced by training and testing on the longtail part datasets.
+|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
+| :---:   |    :----:     |  :----:   |     :---:        |
+| HR      |0.7227         |0.6128     |            |
+| NDCG    |0.4379         |0.3817     |              |
