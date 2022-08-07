@@ -7,13 +7,14 @@
 4. Results and experiment log
 ---
 
-### Models
-Note: models described here are folked from Xiangnan He's [repo](https://github.com/hexiangnan/neural_collaborative_filtering).
-In this experiments we mainly use NeuMF for our cases, however GMF and MLP may also be run to serve as benchmarks.
+### Models 
+Acknowledgment: models described below are folked from Xiangnan He's [repo](https://github.com/hexiangnan/neural_collaborative_filtering).  
+I've updated the codes so that they work on the latest versions of Keras and Python.  
+
 ---
 
 ### Parameters for experiments
-As from the github page of the above hyperlink, to run an example training:
+In these experiments we mainly use NeuMF for our cases, however GMF and MLP may also be run to serve as benchmarks. As from the github page of the above hyperlink, to run an example training:
 ```
 python3 NeuMF.py --dataset ml-1m --epochs 20 --batch_size 256 --num_factors 8 --layers [64,32,16,8] --reg_mf 0 --reg_layers [0,0,0,0] --num_neg 4 --lr 0.001 --learner adam --verbose 1 --out 1
 ```
