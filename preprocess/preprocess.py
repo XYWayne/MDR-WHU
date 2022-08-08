@@ -1,4 +1,3 @@
-from black import NewLine
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -6,7 +5,7 @@ import sys
 import random
 from collections import Counter
 
-IN_FILE = '/Users/wangyue/CMPSC/WHU/preprocess/raw/Prime_Pantry.csv'
+IN_FILE = '/Users/wangyue/CMPSC/WHU/MDR-WHU/preprocess/raw/Prime_Pantry.csv'
 
 # Get the sorted (by frequency) dataframe from infile, given specified column index want to process
 # .rating format: UserID::MovieID::Rating::Timestamp
@@ -98,7 +97,11 @@ def split(infile, outpath): # outpath should be a directory
 	out_negative = f'{outpath}/test.negative'
 
 	f = open(infile, 'r')
-	lines = f.readlines()
+	lines = list(f.readlines())
+	last_line = lines[-1]
+	last_id = last_line.split('\t')[0]
+	print(last_id)
+	f.close()
 
 	# Creating test set from training set using "leave one out"
 	with open(out_train, 'w') as o_tr, open(out_test, 'w') as o_te:
@@ -107,21 +110,23 @@ def split(infile, outpath): # outpath should be a directory
 		for line in lines:
 			tokens = line.split('\t')
 			user_id = int(tokens[0])
-			if user_id == prev_id:
+			if user_id == prev_id or user_id == last_id:
 				temp.append(line)
 			else:
-				test_index = np.round(np.random.rand()*len(temp))
-				# print("random test index:", test_index, "\n temp: ", temp)
-				for i in range(len(temp)):
-					if i == test_index:
-						# print("writing\n", temp[i], "\n into test file")
-						o_te.write(temp[i])
-					else:
-						# print("writing\n", temp[i], "\n into train file")
-						o_tr.write(temp[i])
+				test_line = random.choice(temp)
+				temp.remove(test_line)
+				o_te.write(test_line)
+				for train_line in temp:
+					o_tr.write(train_line)
 				temp = []
 				temp.append(line)
 				prev_id = user_id
+		# Handling the edge case. Code is ugly though
+		test_line = random.choice(temp)
+		temp.remove(test_line)
+		o_te.write(test_line)
+		for train_line in temp:
+			o_tr.write(train_line)
 	o_tr.close()
 	o_te.close()
 
@@ -142,9 +147,17 @@ def split(infile, outpath): # outpath should be a directory
 			out_neg.write(new_line)
 	out_neg.close()
 
+############################################################################################################
+# 1. process the raw csv into standard format--userID::itemID::Rating::timestamp
+# preprocess_raw(IN_FILE, '/Users/wangyue/CMPSC/WHU/MDR-WHU/preprocess/processed/Prime_Pantry_processed.txt')
 
-df = get_df(sys.argv[1], sys.argv[2])
-draw_distribution(df)
-# preprocess_raw(IN_FILE, '/Users/wangyue/CMPSC/WHU/preprocess/processed/Prime_Pantry_processed.txt')
-# split('/Users/wangyue/CMPSC/WHU/preprocess/processed/Prime_Pantry_processed.txt', '.')
+# 2. Get the dataframe from the preprocessed files
+# df = get_df(sys.argv[1], sys.argv[2])
+df = get_df('/Users/wangyue/CMPSC/WHU/MDR-WHU/preprocess/processed/Prime_Pantry_processed.txt', 0)
+
+# 3. Draw the distribution of userID frequency
+# draw_distribution(df)
+
+# 4. Split the dataset into train, test, and negative sets
+split('/Users/wangyue/CMPSC/WHU/MDR-WHU/preprocess/processed/Prime_Pantry_processed.txt', '.')
 # get_negative_dict('/Users/wangyue/CMPSC/WHU/preprocess/processed/Prime_Pantry_processed.txt')
