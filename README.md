@@ -35,25 +35,25 @@ Each line is a testing example: `userID\t itemID\t rating\t timestamp`
 * **test.negative**:  
 Each line is in the format: `(userID,itemID)\t negativeItemID1\t negativeItemID2\t ...`
 
-In order to study the effect of training on a data set that consists of a "hot" part and a "longtail" part, we can first get a visualization of our datasets. Below are some statistics of the above datasets:
+In order to study the effect of training on a data set that consists of a "hot" part and a "longtail" part, we can first get a visualization of our datasets. Note the we have removed the userIDs with frequency 1 from the raw dataset. Below are some statistics of the above datasets:
 
 |                          | MovieLens-1M  | Pinterests-20     |   Yelp    |   Prime Pantry   |
 | :---:                    |    :----:     |       :---:       |  :----:   |     :---:        |
-| Training Samples         | 994169        |1445622            |705994     |461384            |
-| Testing Samples          | 6040          |55187              |25677      |9419              |
-| Negative Samples         | 6040          |55187              |25677      |9419              |
+| Training Samples         | 994169        |1445622            |705994     |460800            |
+| Testing Samples          | 6040          |55187              |25677      |10009             |
+| Negative Samples         | 6040          |55187              |25677      |10009             |
 
 Now, if we want to conduct hot-longtail analysis, we should first see the distribution of user frequency:
 
 |               | MovieLens-1M  | Pinterests-20     |   Yelp   |   Prime Pantry   |
 | :---:         |    :----:     |       :---:       |  :----:  |     :---:        |
-| Count         | 6040          |55187              |25677     |10814             |
-| Mean          | 165           |26                 |27        |43                |
-| Std           | 192           |7                  |42        |151               |
-| Min           | 19            |14                 |9         |1                 |
-| 25 percentile | 43            |21                 |11        |5                 |
-| 50 percentile | 95            |24                 |15        |15                |
-| 75 percentile | 207           |29                 |27        |39                |
+| Count         | 6040          |55187              |25677     |10009             |
+| Mean          | 165           |26                 |27        |47                |
+| Std           | 192           |7                  |42        |156               |
+| Min           | 19            |14                 |9         |2                 |
+| 25 percentile | 43            |21                 |11        |6                 |
+| 50 percentile | 95            |24                 |15        |17                |
+| 75 percentile | 207           |29                 |27        |43                |
 | Max           | 2313          |136                |1175      |6537              |
 
 Below are the visualizations of the datasets' userID distributions:  
