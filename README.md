@@ -114,15 +114,17 @@ Here is the data distribution after spliting:
 Benchmark I is produced by training and testing on the original datasets.
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |0.6816         |0.7506     |            |
-| NDCG    |0.4053         |0.4666     |              |
+| HR      |0.6816         |0.7506     |0.3006            |
+| NDCG    |0.4053         |0.4666     |0.1794            |
 
 #### Benchmark II
 Benchmark II is produced by training on original datasets and testing on the splited datasets.
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
+| HR(hot)      |         |     |            |
+| HR(longtail)      |         |     |            |
+| NDCG(hot)    |         |     |              |
+| NDCG(longtail)    |         |     |              |
 
 ---
 ### Hot-longtail data structure performance
