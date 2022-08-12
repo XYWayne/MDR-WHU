@@ -119,12 +119,12 @@ Benchmark I is produced by training and testing on the original datasets.
 
 #### Benchmark II
 Benchmark II is produced by training on original datasets and testing on the splited datasets.
-|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
-| :---:   |    :----:     |  :----:   |     :---:        |
-| HR(hot)      |         |     |            |
-| HR(longtail)      |         |     |            |
-| NDCG(hot)    |         |     |              |
-| NDCG(longtail)    |         |     |              |
+|                   | MovieLens-1M  |   Yelp    |   Prime Pantry   |
+| :---:             |    :----:     |  :----:   |     :---:        |
+| HR(hot)           |0.5096         |0.7008     |            |
+| HR(longtail)      |0.7437         |0.7678     |            |
+| NDCG(hot)         |0.2715         |0.4041     |              |
+| NDCG(longtail)    |0.4515         |0.4910     |              |
 
 ---
 ### Hot-longtail data structure performance
