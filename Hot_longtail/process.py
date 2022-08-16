@@ -45,17 +45,17 @@ OUT_FILE_YELP_NEG_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/yel
 OUT_FILE_YELP_NEG_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/yelp.test.lt.negative'
 
 #############################################################################################################################
-IN_FILE_PP_TRAIN = '/Users/wangyue/CMPSC/WHU/MDR/Data/amazon_PP.train.rating'
-OUT_FILE_PP_TRAIN_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/amazon_PP.train.hot.rating'
-OUT_FILE_PP_TRAIN_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/amazon_PP.train.lt.rating'
+IN_FILE_PP_TRAIN = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Data/amazon_PP.train.rating'
+OUT_FILE_PP_TRAIN_HOT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.train.hot.rating'
+OUT_FILE_PP_TRAIN_LT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.train.lt.rating'
 
-IN_FILE_PP_TEST = '/Users/wangyue/CMPSC/WHU/MDR/Data/amazon_PP.test.rating'
-OUT_FILE_PP_TEST_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/amazon_PP.test.hot.rating'
-OUT_FILE_PP_TEST_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/amazon_PP.test.lt.rating'
+IN_FILE_PP_TEST = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Data/amazon_PP.test.rating'
+OUT_FILE_PP_TEST_HOT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.test.hot.rating'
+OUT_FILE_PP_TEST_LT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.test.lt.rating'
 
-IN_FILE_PP_NEG = '/Users/wangyue/CMPSC/WHU/MDR/Data/amazon_PP.test.negative'
-OUT_FILE_PP_NEG_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/amazon_PP.test.hot.negative'
-OUT_FILE_PP_NEG_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/amazon_PP.test.lt.negative'
+IN_FILE_PP_NEG = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Data/amazon_PP.test.negative'
+OUT_FILE_PP_NEG_HOT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.test.hot.negative'
+OUT_FILE_PP_NEG_LT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.test.lt.negative'
 
 # Get the sorted (by frequency) dataframe from infile, given specified column index want to process
 # .rating format: UserID::MovieID::Rating::Timestamp

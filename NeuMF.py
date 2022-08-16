@@ -71,10 +71,10 @@ def get_model(num_users, num_items, mf_dim=10, layers=[10], reg_layers=[0], reg_
     
     # Embedding layer
     MF_Embedding_User = Embedding(input_dim = num_users, output_dim = mf_dim, name = 'mf_embedding_user', embeddings_initializer = 'random_normal', embeddings_regularizer = l2(reg_mf), input_length=1)
-    MF_Embedding_Item = Embedding(input_dim = num_items+3, output_dim = mf_dim, name = 'mf_embedding_item', embeddings_initializer = 'random_normal', embeddings_regularizer = l2(reg_mf), input_length=1)  
+    MF_Embedding_Item = Embedding(input_dim = num_items+1, output_dim = mf_dim, name = 'mf_embedding_item', embeddings_initializer = 'random_normal', embeddings_regularizer = l2(reg_mf), input_length=1)  
 
     MLP_Embedding_User = Embedding(input_dim = num_users, output_dim = layers[0]//2, name = "mlp_embedding_user", embeddings_initializer = 'random_normal', embeddings_regularizer = l2(reg_layers[0]), input_length=1)
-    MLP_Embedding_Item = Embedding(input_dim = num_items+3, output_dim = layers[0]//2, name = 'mlp_embedding_item', embeddings_initializer = 'random_normal', embeddings_regularizer = l2(reg_layers[0]), input_length=1)   
+    MLP_Embedding_Item = Embedding(input_dim = num_items+1, output_dim = layers[0]//2, name = 'mlp_embedding_item', embeddings_initializer = 'random_normal', embeddings_regularizer = l2(reg_layers[0]), input_length=1)   
     
     # MF part
     mf_user_latent = Flatten()(MF_Embedding_User(user_input))
