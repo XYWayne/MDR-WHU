@@ -132,8 +132,8 @@ Benchmark II is produced by training on original datasets and testing on the spl
 Hot part performances are produced by training and testing on the hot part datasets.
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |0.4990         |0.7099     |            |
-| NDCG    |0.2647         |0.4124     |              |
+| HR      |0.4990         |0.7099     |0.3750            |
+| NDCG    |0.2647         |0.4124     |0.2384              |
 
 #### Longtail part performances
 Longtail part performances are produced by training and testing on the longtail part datasets.
