@@ -139,8 +139,8 @@ Hot part performances are produced by training and testing on the hot part datas
 Longtail part performances are produced by training and testing on the longtail part datasets.
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |0.7227         |0.6128     |            |
-| NDCG    |0.4379         |0.3817     |              |
+| HR      |0.7227         |0.6128     |0.2513            |
+| NDCG    |0.4379         |0.3817     |0.1477            |
 
 ---
 ### Mixed data structure performance
