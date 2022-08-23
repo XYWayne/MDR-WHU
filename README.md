@@ -148,8 +148,8 @@ Longtail part performances are produced by training and testing on the longtail 
 100% hot part + 10% longtail part
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
+| HR      |0.5436         |     |            |
+| NDCG    |0.2978         |     |              |
 
 100% hot part + 20% longtail part
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
@@ -163,7 +163,19 @@ Longtail part performances are produced by training and testing on the longtail 
 | HR      |         |     |            |
 | NDCG    |         |     |              |
 
+100% hot part + 40% longtail part
+|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
+| :---:   |    :----:     |  :----:   |     :---:        |
+| HR      |         |     |            |
+| NDCG    |         |     |              |
+
 100% hot part + 50% longtail part
+|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
+| :---:   |    :----:     |  :----:   |     :---:        |
+| HR      |         |     |            |
+| NDCG    |         |     |              |
+
+100% hot part + 60% longtail part
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:   |    :----:     |  :----:   |     :---:        |
 | HR      |         |     |            |
