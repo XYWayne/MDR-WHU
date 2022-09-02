@@ -128,5 +128,5 @@ def split_dataset(in_file_test, out_file_hot_test, out_file_lt_test, in_file_tra
 
 # def split_dataset(in_file_test, out_file_hot_test, out_file_lt_test, in_file_train, out_file_hot_train, out_file_lt_train, df, quantile):
 df = get_df(IN_FILE_PP_TRAIN, 0)
-# draw_distribution(df)
-split_dataset(IN_FILE_PP_TEST, OUT_FILE_PP_TEST_HOT, OUT_FILE_PP_TEST_LT, IN_FILE_PP_TRAIN, OUT_FILE_PP_TRAIN_HOT, OUT_FILE_PP_TRAIN_LT, IN_FILE_PP_NEG, OUT_FILE_PP_NEG_HOT, OUT_FILE_PP_NEG_LT, df, 0.75)
+draw_distribution(df)
+# split_dataset(IN_FILE_PP_TEST, OUT_FILE_PP_TEST_HOT, OUT_FILE_PP_TEST_LT, IN_FILE_PP_TRAIN, OUT_FILE_PP_TRAIN_HOT, OUT_FILE_PP_TRAIN_LT, IN_FILE_PP_NEG, OUT_FILE_PP_NEG_HOT, OUT_FILE_PP_NEG_LT, df, 0.75)
