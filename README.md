@@ -121,9 +121,9 @@ Benchmark I is produced by training and testing on the original datasets.
 Benchmark II is produced by training on original datasets and testing on the splited datasets.
 |                   | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:             |    :----:     |  :----:   |     :---:        |
-| HR(hot)           |0.5096         |0.7008     |            |
+| HR(hot)           |0.5096         |0.7008     |0.3762            |
 | HR(longtail)      |0.7437         |0.7678     |0.2730            |
-| NDCG(hot)         |0.2715         |0.4041     |              |
+| NDCG(hot)         |0.2715         |0.4041     |0.2406              |
 | NDCG(longtail)    |0.4515         |0.4910     |0.1672              |
 
 ---
@@ -132,15 +132,15 @@ Benchmark II is produced by training on original datasets and testing on the spl
 Hot part performances are produced by training and testing on the hot part datasets.
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |0.4990         |0.7099     |            |
-| NDCG    |0.2647         |0.4124     |              |
+| HR      |0.4990         |0.7099     |0.3750            |
+| NDCG    |0.2647         |0.4124     |0.2384              |
 
 #### Longtail part performances
 Longtail part performances are produced by training and testing on the longtail part datasets.
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |0.7227         |0.6128     |            |
-| NDCG    |0.4379         |0.3817     |              |
+| HR      |0.7227         |0.6128     |0.2513            |
+| NDCG    |0.4379         |0.3817     |0.1477            |
 
 ---
 ### Mixed data structure performance
@@ -148,14 +148,14 @@ Longtail part performances are produced by training and testing on the longtail 
 100% hot part + 10% longtail part
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
+| HR      |0.5436         |0.7245     |0.3619            |
+| NDCG    |0.2978         |0.4362     |0.2300              |
 
 100% hot part + 20% longtail part
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
+| HR      |0.5801         |0.7263     |            |
+| NDCG    |0.3204         |0.4402     |              |
 
 100% hot part + 30% longtail part
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
@@ -163,7 +163,19 @@ Longtail part performances are produced by training and testing on the longtail 
 | HR      |         |     |            |
 | NDCG    |         |     |              |
 
+100% hot part + 40% longtail part
+|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
+| :---:   |    :----:     |  :----:   |     :---:        |
+| HR      |         |     |            |
+| NDCG    |         |     |              |
+
 100% hot part + 50% longtail part
+|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
+| :---:   |    :----:     |  :----:   |     :---:        |
+| HR      |         |     |            |
+| NDCG    |         |     |              |
+
+100% hot part + 60% longtail part
 |         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
 | :---:   |    :----:     |  :----:   |     :---:        |
 | HR      |         |     |            |
