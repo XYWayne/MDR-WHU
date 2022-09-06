@@ -6,9 +6,11 @@ He Xiangnan et al. Neural Collaborative Filtering. In WWW 2017.
 
 @author: Xiangnan He (xiangnanhe@gmail.com)
 '''
+import os
+os.add_dll_directory("C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.7/bin")
 import numpy as np
-import theano.tensor as T
-import keras
+# import theano.tensor as T
+# import keras
 from keras import regularizers
 from keras import backend as K
 from keras import initializers
