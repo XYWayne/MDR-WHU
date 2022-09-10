@@ -144,7 +144,7 @@ Longtail part performances are produced by training and testing on the longtail 
 
 ---
 ### Mixed data structure performance
-#### To further investigate the subject, we decide to blend in the examples from the longtail part with the hot part by percentage.
+To further investigate the subject, we decide to blend in the examples from the longtail part with the hot part by percentage.
 
 #### NDCG Performance
 ![NDCG](https://user-images.githubusercontent.com/59850013/189500210-5449d039-8eac-4757-ab3c-438ed95c67f1.png)
