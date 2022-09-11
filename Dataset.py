@@ -16,9 +16,9 @@ class Dataset(object):
         '''
         Constructor
         '''
-        self.trainMatrix = self.load_rating_file_as_matrix(path + ".train.hot80%lt.rating")
-        self.testRatings = self.load_rating_file_as_list(path + ".test.hot80%lt.rating")
-        self.testNegatives = self.load_negative_file(path + ".test.hot80%lt.negative")
+        self.trainMatrix = self.load_rating_file_as_matrix(path + ".train.hot10%lt.rand5.rating")
+        self.testRatings = self.load_rating_file_as_list(path + ".test.hot10%lt.rand5.rating")
+        self.testNegatives = self.load_negative_file(path + ".test.hot10%lt.rand5.negative")
         assert len(self.testRatings) == len(self.testNegatives)
         
         self.num_users, self.num_items = self.trainMatrix.shape

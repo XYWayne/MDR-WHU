@@ -2,60 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import re
+import random
 from collections import Counter
-
-IN_FILE_ML_TRAIN = '/Users/wangyue/CMPSC/WHU/MDR/Data/ml-1m.train.rating'
-OUT_FILE_ML_TRAIN_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/ml-1m.train.hot.rating'
-OUT_FILE_ML_TRAIN_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/ml-1m.train.lt.rating'
-
-IN_FILE_ML_TEST = '/Users/wangyue/CMPSC/WHU/MDR/Data/ml-1m.test.rating'
-OUT_FILE_ML_TEST_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/ml-1m.test.hot.rating'
-OUT_FILE_ML_TEST_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/ml-1m.test.lt.rating'
-
-IN_FILE_ML_NEG = '/Users/wangyue/CMPSC/WHU/MDR/Data/ml-1m.test.negative'
-OUT_FILE_ML_NEG_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/ml-1m.test.hot.negative'
-OUT_FILE_ML_NEG_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/ml-1m.test.lt.negative'
-
-#############################################################################################################################
-
-IN_FILE_PI_TRAIN = '/Users/wangyue/CMPSC/WHU/MDR/Data/pinterest-20.train.rating'
-OUT_FILE_PI_TRAIN_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/pinterest-20.train.hot.rating'
-OUT_FILE_PI_TRAIN_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/pinterest-20.train.lt.rating'
-
-IN_FILE_PI_TEST = '/Users/wangyue/CMPSC/WHU/MDR/Data/pinterest-20.test.rating'
-OUT_FILE_PI_TEST_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/pinterest-20.test.hot.rating'
-OUT_FILE_PI_TEST_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/pinterest-20.test.lt.rating'
-
-IN_FILE_PI_NEG = '/Users/wangyue/CMPSC/WHU/MDR/Data/pinterest-20.test.negative'
-OUT_FILE_PI_NEG_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/pinterest-20.test.hot.negative'
-OUT_FILE_PI_NEG_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/pinterest-20.test.lt.negative'
-
-#############################################################################################################################
-
-IN_FILE_YELP_TRAIN = '/Users/wangyue/CMPSC/WHU/MDR/Data/yelp.train.rating'
-OUT_FILE_YELP_TRAIN_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/yelp.train.hot.rating'
-OUT_FILE_YELP_TRAIN_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/yelp.train.lt.rating'
-
-IN_FILE_YELP_TEST = '/Users/wangyue/CMPSC/WHU/MDR/Data/yelp.test.rating'
-OUT_FILE_YELP_TEST_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/yelp.test.hot.rating'
-OUT_FILE_YELP_TEST_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/yelp.test.lt.rating'
-
-IN_FILE_YELP_NEG = '/Users/wangyue/CMPSC/WHU/MDR/Data/yelp.test.negative'
-OUT_FILE_YELP_NEG_HOT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/yelp.test.hot.negative'
-OUT_FILE_YELP_NEG_LT = '/Users/wangyue/CMPSC/WHU/MDR/Hot_longtail/processed/yelp.test.lt.negative'
-
-#############################################################################################################################
-IN_FILE_PP_TRAIN = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Data/amazon_PP.train.rating'
-OUT_FILE_PP_TRAIN_HOT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.train.hot.rating'
-OUT_FILE_PP_TRAIN_LT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.train.lt.rating'
-
-IN_FILE_PP_TEST = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Data/amazon_PP.test.rating'
-OUT_FILE_PP_TEST_HOT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.test.hot.rating'
-OUT_FILE_PP_TEST_LT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.test.lt.rating'
-
-IN_FILE_PP_NEG = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Data/amazon_PP.test.negative'
-OUT_FILE_PP_NEG_HOT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.test.hot.negative'
-OUT_FILE_PP_NEG_LT = '/Users/wangyue/CMPSC/WHU/MDR-WHU/Hot_longtail/processed/amazon_PP.test.lt.negative'
 
 # Get the sorted (by frequency) dataframe from infile, given specified column index want to process
 # .rating format: UserID::MovieID::Rating::Timestamp
@@ -85,7 +33,17 @@ def draw_distribution(df, save_path=None):
 		plt.show()
 
 # Split file using given quantile threshold
-def split_dataset(in_file_test, out_file_hot_test, out_file_lt_test, in_file_train, out_file_hot_train, out_file_lt_train, in_file_negative, out_file_hot_negative, out_file_lt_negative, df, quantile):
+def split_dataset(dataset, quantile):
+	in_file_test = 'Data/' + str(dataset) + '.test.rating'
+	out_file_hot_test = 'Data/' + str(dataset) + '.test.hot.rating'
+	out_file_lt_test = 'Data/' + str(dataset) + '.test.lt.rating'
+	in_file_train = 'Data/' + str(dataset) + '.train.rating'
+	out_file_hot_train = 'Data/' + str(dataset) + '.train.hot.rating'
+	out_file_lt_train = 'Data/' + str(dataset) + '.train.lt.rating'
+	in_file_negative = 'Data/' + str(dataset) + '.test.negative'
+	out_file_hot_negative = 'Data/' + str(dataset) + '.test.hot.negative'
+	out_file_lt_negative = 'Data/' + str(dataset) + '.test.lt.negative'
+	df = get_df(in_file_train, 0)
 	with open(in_file_test, 'r') as in_test, open(in_file_train) as in_train, open(in_file_negative) as in_neg:
 		threshold = df.quantile(quantile)[1]
 		with open(out_file_hot_test, 'w') as out_hot_test, open(out_file_lt_test, 'w') as out_lt_test, open(out_file_hot_train, 'w') as out_hot_train, open(out_file_lt_train, 'w') as out_lt_train, open(out_file_hot_negative, 'w') as out_hot_neg, open(out_file_lt_negative, 'w') as out_lt_neg:
@@ -126,7 +84,35 @@ def split_dataset(in_file_test, out_file_hot_test, out_file_lt_test, in_file_tra
 	in_train.close()
 	in_neg.close()
 
+# Split dataset and manually decrease the number of testing samples by randomly selecting n samples from training data
+def split_lt_random(dataset, quantile, n=5):
+	in_file_train = 'Data/' + str(dataset) + '.train.rating'
+	out_file_hot_train = 'Data/' + str(dataset) + f'.train.hot.rand{n}.rating'
+	out_file_lt_train = 'Data/' + str(dataset) + f'.train.lt.rand{n}rating'
+	df = get_df(in_file_train, 0)
+	with open(in_file_train) as in_train:
+		threshold = df.quantile(quantile)[1]
+		with open(out_file_hot_train, 'w') as out_hot_train, open(out_file_lt_train, 'w') as out_lt_train:
+			lines_train = in_train.readlines()
+			temp = [] # Temp buffer to hold all longtail data
+			for line_train in lines_train:
+				id_train = int(line_train.split('\t')[0])
+				frequency_train = df.loc[df['id'] == id_train, 'frequency'].iloc[0]
+				print(f'train id:{id_train}, frequency: {frequency_train}, thres: {threshold}')
+				if frequency_train >= threshold:
+					out_hot_train.write(line_train)
+				else:
+					temp.append(line_train)
+			values = set(map(lambda x:int(x.split('\t')[0]), temp))
+			newlist = [[y for y in temp if int(y.split('\t')[0])==x] for x in values]
+			# Here we perform the randomization
+			for list in newlist:
+				for item in random.sample(list, n):
+					out_lt_train.write(item)
+				
+
+split_lt_random('ml-1m', 0.75)
 # def split_dataset(in_file_test, out_file_hot_test, out_file_lt_test, in_file_train, out_file_hot_train, out_file_lt_train, df, quantile):
-df = get_df(IN_FILE_PP_TRAIN, 0)
-draw_distribution(df)
+# df = get_df(IN_FILE_PP_TRAIN, 0)
+# draw_distribution(df)
 # split_dataset(IN_FILE_PP_TEST, OUT_FILE_PP_TEST_HOT, OUT_FILE_PP_TEST_LT, IN_FILE_PP_TRAIN, OUT_FILE_PP_TRAIN_HOT, OUT_FILE_PP_TRAIN_LT, IN_FILE_PP_NEG, OUT_FILE_PP_NEG_HOT, OUT_FILE_PP_NEG_LT, df, 0.75)

@@ -1,7 +1,8 @@
 import random
 
 INPATH = 'Data/'
-OUTPATH = 'Hot_longtail/mixed_data/'
+# OUTPATH = 'Hot_longtail/mixed_data/'
+OUTPATH = 'Hot_longtail/lesser_samples/'
 
 def chunks(lst, n):
     """Yield successive n-sized chunks from lst."""
@@ -11,11 +12,11 @@ def chunks(lst, n):
 def get_mix_data(dataset):
 	random.seed(42)
 	# paths to hot files
-	in_file_train_hot = INPATH + str(dataset) + '.train.hot.rating'
+	in_file_train_hot = INPATH + str(dataset) + '.train.hot.rand5.rating'
 	in_file_test_hot = INPATH + str(dataset) + '.test.hot.rating'
 	in_file_hot_negative = INPATH + str(dataset) + '.test.hot.negative'
 	# paths to longtail files
-	in_file_train_lt = INPATH + str(dataset) + '.train.lt.rating'
+	in_file_train_lt = INPATH + str(dataset) + '.train.lt.rand5.rating'
 	in_file_test_lt = INPATH + str(dataset) + '.test.lt.rating'
 	in_file_lt_negative = INPATH + str(dataset) + '.test.lt.negative'
 
@@ -38,7 +39,7 @@ def get_mix_data(dataset):
 	# 	print(len(sublist))
 
 	# Start writing into hot file (10%)
-	for perc in [10, 20, 30, 40, 50, 60, 70, 80, 90]:
+	for perc in [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]:
 		print(f'Creating mixed data of hot and {perc}% longtail.')
 		num_id_list = perc // 10
 		id_list = []
@@ -61,7 +62,7 @@ def get_mix_data(dataset):
 		
 		# Sort corpus by id
 		corpus_train.sort(key = lambda x: int(x.split('\t')[0]))
-		with open(OUTPATH + str(dataset) + f'.train.hot{perc}%lt.rating', 'w') as out_train:
+		with open(OUTPATH + str(dataset) + f'.train.hot{perc}%lt.rand5.rating', 'w') as out_train:
 			for line in corpus_train:
 				out_train.write(line)
 		
@@ -81,7 +82,7 @@ def get_mix_data(dataset):
 					corpus_test.append(line)
 		
 		corpus_test.sort(key = lambda x: int(x.split('\t')[0]))
-		with open(OUTPATH + str(dataset) + f'.test.hot{perc}%lt.rating', 'w') as out_test:
+		with open(OUTPATH + str(dataset) + f'.test.hot{perc}%lt.rand5.rating', 'w') as out_test:
 			for line in corpus_test:
 				out_test.write(line)
 
@@ -100,9 +101,9 @@ def get_mix_data(dataset):
 					# print(f'id{temp_id} found in longtail split.')
 					corpus_neg.append(line)
 		corpus_neg.sort(key = lambda x: int(x.split('\t')[0].split(',')[0].replace('(', '')))
-		with open(OUTPATH + str(dataset) + f'.test.hot{perc}%lt.negative', 'w') as out_neg:
+		with open(OUTPATH + str(dataset) + f'.test.hot{perc}%lt.rand5.negative', 'w') as out_neg:
 			for line in corpus_neg:
 				out_neg.write(line)
 
 
-get_mix_data('amazon_PP')
+get_mix_data('ml-1m')
