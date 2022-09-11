@@ -144,63 +144,10 @@ Longtail part performances are produced by training and testing on the longtail 
 
 ---
 ### Mixed data structure performance
-#### To further investigate the subject, we decide to blend in the examples from the longtail part with the hot part by percentage.
-100% hot part + 10% longtail part
-|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
-| :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |0.5436         |0.7245     |0.3619            |
-| NDCG    |0.2978         |0.4362     |0.2300              |
+To further investigate the subject, we decide to blend in the examples from the longtail part with the hot part by percentage.
 
-100% hot part + 20% longtail part
-|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
-| :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |0.5801         |0.7263     |            |
-| NDCG    |0.3204         |0.4402     |              |
+#### NDCG Performance
+![NDCG](https://user-images.githubusercontent.com/59850013/189500210-5449d039-8eac-4757-ab3c-438ed95c67f1.png)
 
-100% hot part + 30% longtail part
-|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
-| :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
-
-100% hot part + 40% longtail part
-|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
-| :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
-
-100% hot part + 50% longtail part
-|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
-| :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
-
-100% hot part + 60% longtail part
-|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
-| :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
-
-100% hot part + 70% longtail part
-|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
-| :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
-
-100% hot part + 80% longtail part
-|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
-| :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
-
-100% hot part + 90% longtail part
-|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
-| :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
-
-100% hot part + 100% longtail part (i.e., the benchmark I)
-|         | MovieLens-1M  |   Yelp    |   Prime Pantry   |
-| :---:   |    :----:     |  :----:   |     :---:        |
-| HR      |         |     |            |
-| NDCG    |         |     |              |
+#### HR Performance
+![hr](https://user-images.githubusercontent.com/59850013/189500232-c142badb-1a21-4f84-876c-26c1546aad1c.png)
