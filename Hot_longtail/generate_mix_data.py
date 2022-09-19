@@ -106,4 +106,4 @@ def get_mix_data(dataset):
 				out_neg.write(line)
 
 
-get_mix_data('ml-1m')
+get_mix_data('yelp')

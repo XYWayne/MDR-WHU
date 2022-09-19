@@ -4,8 +4,11 @@ x_labels = ['10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%
 ml_hr = [0.5436, 0.5801, 0.5940, 0.6086, 0.6248, 0.6415, 0.6520, 0.6612, 0.6793, 0.6816] # 0.6612, 0.6793
 ml_ndcg = [0.2978, 0.3204, 0.3310, 0.3477, 0.3517, 0.3708, 0.3788, 0.3889, 0.4021, 0.4053] # 0.3889, 0.4021
 
-ml_hr_rand = [0.5318]
-ml_ndcg_rand = [0.2876]
+ml_hr_rand = [0.5318, 0.5259, 0.5337, 0.5462, 0.5484, 0.5562, 0.5660, 0.5662, 0.5641, 0.5700]
+ml_ndcg_rand = [0.2876, 0.2849, 0.2961, 0.2990, 0.3064, 0.3086, 0.3162, 0.3183, 0.3155, 0.3195]
+
+yelp_hr_rand = [0.7159, 0.7173, 0.7185, 0.7148, 0.7159]
+yelp_ndcg_rand = [0.4242, 0.4362, 0.4408, 0.4418, 0.4437]
 
 yelp_hr = [0.7245, 0.7263, 0.7343, 0.7377, 0.7382, 0.7473, 0.7432, 0.7414, 0.7423, 0.7506] # 0.7432, 0.7414, 0.7423
 yelp_ndcg = [0.4362, 0.4402, 0.4445, 0.4497, 0.4544, 0.4579, 0.4609, 0.4575, 0.4624, 0.4666] # 0.4609, 0.4575, 0.4624
@@ -16,18 +19,28 @@ pp_ndcg = [0.2300, 0.2181, 0.2077, 0.2046, 0.1999, 0.1949, 0.1926, 0.1877, 0.181
 fig = plt.figure()
 ax = fig.add_subplot(111)
 
-plt.plot(x_labels, ml_hr, "-o", label = 'MovieLens 1M')
-plt.plot(x_labels, yelp_hr, "-o", label = 'Yelp')
-plt.plot(x_labels, pp_hr, "-o", label = 'Amazon Prime Pantry')
-plt.title("HR performance of mixed datasets")
+# plt.plot(x_labels, ml_hr, "-o", label = 'MovieLens 1M')
+# plt.plot(x_labels, yelp_hr, "-o", label = 'Yelp')
+# plt.plot(x_labels, pp_hr, "-o", label = 'Amazon Prime Pantry')
+# plt.title("HR performance of mixed datasets")
+# plt.xlabel('Percentage of longtail data mixed')
+# plt.ylabel('HR')
+# for i, v in enumerate(ml_hr):
+#     ax.annotate(str(v), xy=(i,v), xytext=(-7,7), textcoords='offset points')
+# for i, v in enumerate(yelp_hr):
+#     ax.annotate(str(v), xy=(i,v), xytext=(-7,7), textcoords='offset points')
+# for i, v in enumerate(pp_hr):
+#     ax.annotate(str(v), xy=(i,v), xytext=(-7,7), textcoords='offset points')
+
+plt.plot(x_labels, ml_hr_rand, "-o", label = 'MovieLens 1M')
+# plt.plot(x_labels, yelp_hr_rand, "-o", label = 'Yelp')
+plt.title("HR performance of mixed datasets (# lt samples = 5)")
 plt.xlabel('Percentage of longtail data mixed')
 plt.ylabel('HR')
-for i, v in enumerate(ml_hr):
+for i, v in enumerate(ml_hr_rand):
     ax.annotate(str(v), xy=(i,v), xytext=(-7,7), textcoords='offset points')
-for i, v in enumerate(yelp_hr):
-    ax.annotate(str(v), xy=(i,v), xytext=(-7,7), textcoords='offset points')
-for i, v in enumerate(pp_hr):
-    ax.annotate(str(v), xy=(i,v), xytext=(-7,7), textcoords='offset points')
+# for i, v in enumerate(yelp_hr_rand):
+#     ax.annotate(str(v), xy=(i,v), xytext=(-7,7), textcoords='offset points')
 
 # plt.plot(x_labels, ml_ndcg, "-o", label = 'MovieLens 1M')
 # plt.plot(x_labels, yelp_ndcg, "-o", label = 'Yelp')

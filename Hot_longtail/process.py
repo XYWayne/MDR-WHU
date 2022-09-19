@@ -111,7 +111,7 @@ def split_lt_random(dataset, quantile, n=5):
 					out_lt_train.write(item)
 				
 
-split_lt_random('ml-1m', 0.75)
+split_lt_random('yelp', 0.75)
 # def split_dataset(in_file_test, out_file_hot_test, out_file_lt_test, in_file_train, out_file_hot_train, out_file_lt_train, df, quantile):
 # df = get_df(IN_FILE_PP_TRAIN, 0)
 # draw_distribution(df)
