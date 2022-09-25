@@ -151,3 +151,16 @@ To further investigate the subject, we decide to blend in the examples from the 
 
 #### HR Performance
 ![hr](https://user-images.githubusercontent.com/59850013/189500232-c142badb-1a21-4f84-876c-26c1546aad1c.png)
+
+---
+### Down Sampling
+We can see that model performance on some datasets (where lt samples are insufficient) increased as we blended in data, while some decreased. In order to see if the pattern applied to all insufficient lt data structure, we down sampled the lt sample to be 5.
+
+#### NDCG
+![image](https://user-images.githubusercontent.com/59850013/192160685-181dbff2-0071-400b-ae61-1a3c7c1f25e6.png)
+
+#### HR
+![image](https://user-images.githubusercontent.com/59850013/192160688-b2dfab98-08e5-4df8-83f4-ab097d8d7c02.png)
+
+
+
