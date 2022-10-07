@@ -1,0 +1,26 @@
+Number of hot users: 433378, number of lt users: 30111
+Number of hot items: 325991, number of lt items: 137498
+
+Number of hot users: 433378, number of lt users: 60152
+Number of hot items: 348176, number of lt items: 145354
+
+Number of hot users: 433378, number of lt users: 89354
+Number of hot items: 369551, number of lt items: 153181
+
+Number of hot users: 433378, number of lt users: 118022
+Number of hot items: 390301, number of lt items: 161099
+
+Number of hot users: 433378, number of lt users: 146335
+Number of hot items: 411336, number of lt items: 168377
+
+Number of hot users: 433378, number of lt users: 173899
+Number of hot items: 431732, number of lt items: 175545
+
+Number of hot users: 433378, number of lt users: 200718
+Number of hot items: 451311, number of lt items: 182785
+
+Number of hot users: 433378, number of lt users: 226362
+Number of hot items: 469981, number of lt items: 189759
+
+Number of hot users: 433378, number of lt users: 250634
+Number of hot items: 487711, number of lt items: 196301
