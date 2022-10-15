@@ -112,9 +112,9 @@ def split_lt_random(dataset, quantile, n=5):
 
 # Same as the above, but we want all the samples comming from the lt part.
 def split_lt_random_hot(dataset, quantile, n=5, sample = False):
-	in_file_train = 'Data/' + str(dataset) + '.train.rating'
-	out_file_hot_train = 'Data/' + str(dataset) + f'.train.hot.hotitem.rating'
-	out_file_lt_train = 'Data/' + str(dataset) + f'.train.lt.hotitem.rating'
+	in_file_train = '../Data/' + str(dataset) + '.train.rating'
+	out_file_hot_train = '../Data/' + str(dataset) + f'.train.hot.hotitem.rating'
+	out_file_lt_train = '../Data/' + str(dataset) + f'.train.lt.hotitem.rating'
 	df = get_df(in_file_train, 0)
 	df_item = get_df(in_file_train, 1) # get the item df
 	with open(in_file_train) as in_train:

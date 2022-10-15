@@ -1,0 +1,3 @@
+NeuMF arguments: Namespace(batch_size=256, dataset='yelp.hot90%lt.hotitem', epochs=20, layers='[64,32,16,8]', learner='adam', lr=0.001, mf_pretrain='', mlp_pretrain='', num_factors=8, num_neg=4, out=1, path='./Hot_longtail/lesser_samples/', reg_layers='[0,0,0,0]', reg_mf=0.0, verbose=1) 
+Load data done [4.4 s]. #user=25677, #item=25815, #train=475260, #test=21682
+Init: HR = 0.0897, NDCG = 0.0404

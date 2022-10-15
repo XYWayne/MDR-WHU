@@ -1,0 +1,25 @@
+NeuMF arguments: Namespace(batch_size=256, dataset='yelp.hot20%lt.hotitem', epochs=20, layers='[64,32,16,8]', learner='adam', lr=0.001, mf_pretrain='', mlp_pretrain='', num_factors=8, num_neg=4, out=1, path='./Hot_longtail/lesser_samples/', reg_layers='[0,0,0,0]', reg_mf=0.0, verbose=1) 
+Load data done [3.6 s]. #user=25676, #item=25812, #train=427790, #test=9838
+Init: HR = 0.0934, NDCG = 0.0441
+Iteration 0 [69.1 s]: HR = 0.5230, NDCG = 0.3007, loss = 0.3912 [405.9 s]
+Iteration 1 [68.7 s]: HR = 0.6009, NDCG = 0.3467, loss = 0.2683 [405.9 s]
+Iteration 2 [68.7 s]: HR = 0.6330, NDCG = 0.3642, loss = 0.2290 [405.9 s]
+Iteration 3 [68.6 s]: HR = 0.6313, NDCG = 0.3645, loss = 0.2095 [407.4 s]
+Iteration 4 [68.7 s]: HR = 0.6470, NDCG = 0.3704, loss = 0.1967 [406.7 s]
+Iteration 5 [68.6 s]: HR = 0.6469, NDCG = 0.3786, loss = 0.1872 [406.7 s]
+Iteration 6 [68.6 s]: HR = 0.6422, NDCG = 0.3733, loss = 0.1788 [406.8 s]
+Iteration 7 [68.6 s]: HR = 0.6515, NDCG = 0.3847, loss = 0.1727 [407.2 s]
+Iteration 8 [68.6 s]: HR = 0.6455, NDCG = 0.3799, loss = 0.1657 [406.8 s]
+Iteration 9 [68.6 s]: HR = 0.6406, NDCG = 0.3792, loss = 0.1604 [406.8 s]
+Iteration 10 [68.6 s]: HR = 0.6343, NDCG = 0.3723, loss = 0.1547 [406.9 s]
+Iteration 11 [68.6 s]: HR = 0.6377, NDCG = 0.3761, loss = 0.1501 [410.6 s]
+Iteration 12 [67.8 s]: HR = 0.6388, NDCG = 0.3767, loss = 0.1451 [420.9 s]
+Iteration 13 [67.6 s]: HR = 0.6362, NDCG = 0.3739, loss = 0.1409 [426.6 s]
+Iteration 14 [67.0 s]: HR = 0.6359, NDCG = 0.3742, loss = 0.1379 [435.8 s]
+Iteration 15 [67.9 s]: HR = 0.6369, NDCG = 0.3763, loss = 0.1338 [428.5 s]
+Iteration 16 [67.0 s]: HR = 0.6409, NDCG = 0.3813, loss = 0.1303 [502.7 s]
+Iteration 17 [67.1 s]: HR = 0.6270, NDCG = 0.3707, loss = 0.1276 [415.0 s]
+Iteration 18 [67.0 s]: HR = 0.6375, NDCG = 0.3759, loss = 0.1244 [419.6 s]
+Iteration 19 [67.0 s]: HR = 0.6341, NDCG = 0.3763, loss = 0.1213 [423.5 s]
+End. Best Iteration 7:  HR = 0.6515, NDCG = 0.3847. 
+The best NeuMF model is saved to Pretrain/yelp.hot20%lt.hotitem_NeuMF_8_[64,32,16,8]_1665351164.h5
